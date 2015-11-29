@@ -180,7 +180,6 @@ class World(defaultdict):
 
 if __name__ == '__main__':
     for filename in ('gate_or.txt', 'gate_xor.txt', 'gate_and.txt', 'gate_noreverse.txt'):
-    # for filename in ('memory.txt',):
         world = World.read(filename)
         def user_show():
             print('PLAYING: ' + filename)
