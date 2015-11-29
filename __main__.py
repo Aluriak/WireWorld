@@ -2,7 +2,11 @@
 WireWorld, another cellular automaton with funny consequences:
     http://mathworld.wolfram.com/WireWorld.html
 
-Use metaclasses for implement the singleton pattern.
+Use metaclasses for implement the Singleton pattern.
+One singleton by existing state.
+Its not a pure Singleton, while nothing can prevent you to create multiple
+instances of the Singleton classes.
+In fact, its a use-class-instead-of-instance pattern.
 
 Need a utf8 compliant terminal, or modify the CHAR_{WIDE,HEAD}
     values, few lines below.
@@ -174,27 +178,14 @@ class World(defaultdict):
         )
 
 
-    @staticmethod
-    def gate_or():
-        """logical OR gate"""
-        return World.read('gate_or.txt')
-    @staticmethod
-    def gate_xor():
-        """logical XOR gate"""
-        return World.read('gate_xor.txt')
-    @staticmethod
-    def gate_and():
-        """logical AND gate"""
-        return World.read('gate_and.txt')
-
-
 if __name__ == '__main__':
-    for func in (World.gate_or, World.gate_xor, World.gate_and):
-        world = func()
+    for filename in ('gate_or.txt', 'gate_xor.txt', 'gate_and.txt', 'gate_noreverse.txt'):
+    # for filename in ('memory.txt',):
+        world = World.read(filename)
         def user_show():
-            print('PLAYING: ' + func.__doc__)
+            print('PLAYING: ' + filename)
             print(world)
-            time.sleep(0.3)
+            time.sleep(0.1)
         user_show()
         while world.have_current:
             world = world.next()
