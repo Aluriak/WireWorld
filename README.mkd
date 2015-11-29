@@ -9,7 +9,7 @@ Python 3, metaclasses for implementing Singleton pattern, UTF8 for terminal outp
     make
 
 ## losing more time
-Design your own circuits, as in *gate_\*.txt* files, and load them with the *World.read* method.
+Design your own circuits, as in txt files, and load them with the *World.read* method.
 
 If you design more circuits, do a PR for integrate them.
 
