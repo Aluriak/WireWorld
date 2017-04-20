@@ -159,7 +159,7 @@ class World(defaultdict):
         )
         with open(filename) as fd:
             tupleworld = tuple(
-                tuple(wireclass[char] for char in line if char in wireclass)
+                tuple(wireclass[char] if char in wireclass else Void for char in line)
                 for line in fd
             )
         return World(tupleworld)
